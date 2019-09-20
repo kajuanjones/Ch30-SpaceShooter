@@ -12,14 +12,16 @@ public class Hero : MonoBehaviour
     public float pitchMult = 30;
 
     [Header("Set Dyanmically")]
-    public float shieldLevel = 1;
+    public float _shieldLevel = 1;
+    private GameObject lastTriggerGo = null;
 
     void Awake()
     {
         if (S == null)
         {
             S = this;
-        }else
+        }
+        else
         {
             Debug.LogError("Hero.Awake() - Attempted to assign second Hero.S!");
         }
@@ -38,9 +40,48 @@ public class Hero : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("Triggered:" + other.gameObject.name);
+        Transform rootT = other.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+        //print("Triggered:" + go.name);
+
+        if (go == lastTriggerGo)
+        {
+            return;
+        }
+        lastTriggerGo = go;
+
+        if (go.tag == "Enemy")
+        {
+            _shieldLevel--;
+            Destroy(go);
+        }
+        else
+        {
+            print("Triggered by non-Enemy:" + go.name);
+        }
     }
+
+    public float shieldLevel
+    {
+
+        get
+        {
+            return (_shieldLevel);
+        }
+        set
+        {
+            _shieldLevel = Mathf.Min(value, 4);
+            if (value < 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
 }
+
+
+
 
 
 
