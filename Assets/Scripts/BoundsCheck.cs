@@ -6,8 +6,10 @@ public class BoundsCheck : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public float radius = 1f;
+    public bool keepOnScreen = true;
 
     [Header("Set Dyanmically")]
+    public bool isOnscreen = true;
     public float camWidth;
     public float camHeight;
 
@@ -20,24 +22,35 @@ public class BoundsCheck : MonoBehaviour
     void LateUpdate()
     {
         Vector3 pos = transform.position;
+        isOnscreen = true;
         if (pos.x > camWidth - radius)
         {
             pos.x = camWidth - radius;
+            isOnscreen = false;
         }
 
         if (pos.x < -camWidth + radius)
         {
             pos.x = -camWidth + radius;
+            isOnscreen = false;
         }
 
         if (pos.y > camHeight - radius)
         {
             pos.y = camHeight - radius;
+            isOnscreen = false;
         }
 
         if (pos.y < -camHeight + radius)
         {
             pos.y = -camHeight + radius;
+            isOnscreen = false;
+        }
+
+        if(keepOnScreen && !isOnscreen)
+        {
+            transform.position = pos;
+            isOnscreen = true;
         }
 
         transform.position = pos;
