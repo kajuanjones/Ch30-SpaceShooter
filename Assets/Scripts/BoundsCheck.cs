@@ -9,9 +9,11 @@ public class BoundsCheck : MonoBehaviour
     public bool keepOnScreen = true;
 
     [Header("Set Dyanmically")]
-    public bool isOnscreen = true;
+    public bool isOnScreen = true;
     public float camWidth;
     public float camHeight;
+    [HideInInspector]
+    public bool offRight, offLeft, offUp, offDown;
 
     void Awake()
     {
@@ -22,35 +24,43 @@ public class BoundsCheck : MonoBehaviour
     void LateUpdate()
     {
         Vector3 pos = transform.position;
-        isOnscreen = true;
+        isOnScreen = true;
+        offRight = offLeft = offUp = offDown = false;
         if (pos.x > camWidth - radius)
         {
             pos.x = camWidth - radius;
-            isOnscreen = false;
+            isOnScreen = false;
+            offRight = true;
         }
 
         if (pos.x < -camWidth + radius)
         {
             pos.x = -camWidth + radius;
-            isOnscreen = false;
+            isOnScreen = false;
+            offLeft = true;
         }
 
         if (pos.y > camHeight - radius)
         {
             pos.y = camHeight - radius;
-            isOnscreen = false;
+            isOnScreen = false;
+            offUp = true;
         }
+
 
         if (pos.y < -camHeight + radius)
         {
             pos.y = -camHeight + radius;
-            isOnscreen = false;
+            isOnScreen = false;
+            offDown = true;
         }
 
-        if(keepOnScreen && !isOnscreen)
+        isOnScreen = !(offRight || offLeft || offUp || offDown);
+        if(keepOnScreen && !isOnScreen)
         {
             transform.position = pos;
-            isOnscreen = true;
+            isOnScreen = true;
+            offRight = offLeft = offUp = offDown = false;
         }
 
         transform.position = pos;
