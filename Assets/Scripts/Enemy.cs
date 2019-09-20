@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-        bndCheck = GetComponent<BoundsCheck>(); 
+        bndCheck = GetComponent<BoundsCheck>();
     }
 
     public Vector3 pos
@@ -38,8 +38,8 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-       
-    
+
+
 
     public virtual void Move()
     {
@@ -48,4 +48,4 @@ public class Enemy : MonoBehaviour
         pos = tempPos;
     }
 }
-    
+
