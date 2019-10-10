@@ -100,8 +100,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3504029113442968960}
-  - component: {fileID: 8331612831171652615}
   - component: {fileID: 3397840280144886657}
+  - component: {fileID: 7370330765731690358}
+  - component: {fileID: 4632173294148884098}
   m_Layer: 9
   m_Name: Enemy_1
   m_TagString: Enemy
@@ -125,7 +126,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8331612831171652615
+--- !u!114 &3397840280144886657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,14 +135,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 3504029113442968961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d849b118bab22fa4fbd4599a1209b2f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b780707b89a5c447acaa2df7fa35bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3.5
+  keepOnScreen: 0
+  isOnScreen: 1
+  camWidth: 0
+  camHeight: 0
+  offRight: 0
+  offLeft: 0
+  offUp: 0
+  offDown: 0
+--- !u!114 &7370330765731690358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3504029113442968961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5120911a88b5ebf46909ee0eeefb2dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
   fireRate: 0.3
   health: 10
   score: 100
---- !u!114 &3397840280144886657
+  waveFrequency: 2
+  waveWidth: 4
+  waveRotY: 45
+--- !u!114 &4632173294148884098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
