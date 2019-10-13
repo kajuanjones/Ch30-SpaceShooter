@@ -26,12 +26,14 @@ public class Hero : MonoBehaviour
         {
             S = this;
         
-        
-        fireDelegate += TempFire;
+
+
+
+
+        //fireDelegate += TempFire;
     }
 
-        else
-        {
+        else{
             Debug.LogError("Hero.Awake() - Attempted to assign second Hero.S!");
         }
     }
@@ -53,7 +55,8 @@ public class Hero : MonoBehaviour
         }
 
 
-        if (Input.GetAxis("Jump") == 1 && fireDelegate != null){
+        if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
+        {
             fireDelegate();
         }
     }
@@ -68,7 +71,7 @@ public class Hero : MonoBehaviour
         Projectile proj = projGO.GetComponent<Projectile>();
         proj.type = WeaponType.blaster;
         float tSpeed = Main.GetWeaponDefinition(proj.type).velocity;
-            rigidB.velocity = Vector3.up * tSpeed;
+        rigidB.velocity = Vector3.up * tSpeed;
 
     }
 

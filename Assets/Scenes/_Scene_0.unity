@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabEnemies:
-  - {fileID: 7697939873804566658, guid: c7c0796dc964c134aacc10c2fea71896, type: 3}
+  - {fileID: 3713719883070283048, guid: a2975311a75b0c9499791429a318e095, type: 3}
   enemySpawnPerSecond: 0.5
   enemyDefaultPadding: 1.5
   weaponDefinitions:
@@ -225,10 +225,10 @@ MonoBehaviour:
     velocity: 50
   - type: 2
     letter: S
-    color: {r: 1, g: 1, b: 1, a: 0}
+    color: {r: 0, g: 0.011662006, b: 1, a: 0}
     projectilePrefab: {fileID: 4506346820525514460, guid: 1f5455e8c9a1d2e41bfa55f45b99183b,
       type: 3}
-    projectileColor: {r: 1, g: 1, b: 1, a: 0}
+    projectileColor: {r: 0, g: 0.011764706, b: 1, a: 0}
     damageOnHit: 1
     continuousDamage: 0
     delayBetweenShots: 0.4
@@ -339,6 +339,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5919421364339840755, guid: db112bbf28fc12447bd9a7483fe4223c,
+        type: 3}
+      propertyPath: _type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6692103298132464363, guid: db112bbf28fc12447bd9a7483fe4223c,
         type: 3}
       propertyPath: m_Name
