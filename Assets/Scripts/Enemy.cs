@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
         {
             case "ProjectileHero":
                 Projectile p = otherGO.GetComponent<Projectile>();
-                if (!bndCheck.isOnScreen)
+                if (bndCheck.isOnScreen)
                 {
                     ShowDamage();
                     Destroy(otherGO);

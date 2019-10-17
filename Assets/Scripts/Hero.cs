@@ -35,9 +35,9 @@ public class Hero : MonoBehaviour
 
             ClearWeapons();
             weapons[0].SetType(WeaponType.blaster);
-    }
+        }
 
-        else{
+        else {
             Debug.LogError("Hero.Awake() - Attempted to assign second Hero.S!");
         }
     }
@@ -95,11 +95,11 @@ public class Hero : MonoBehaviour
         {
             _shieldLevel--;
             Destroy(go);
-        }else if (go.tag == "PowerUp")
+        } else if (go.tag == "PowerUp")
         {
             AbsorbPowerUp(go);
         }
-        
+
 
         else
         {
